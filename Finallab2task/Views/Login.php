@@ -1,14 +1,15 @@
-<?php include 'main_header.php'; ?>
-<html>
+<?php include 'MainHeader.php'; ?>
+<?php include '../Controllers/AdminControl.php'; ?>
+ <html>
     <head></head>
-	<body>
+	<boady>
 	    <div align="center">
 		    <h3>Login</h3>
 			<h5><?php echo $err_db; ?></h5>
 			<form action="" method="post">
 			    <div>
 				    <h4>Username</h4>
-					<input type = "text" name = "uname"/>
+					<input type = "text" name = "uname" value="<?php echo $uname; ?>"/>
 					<span> <?php echo $err_uname; ?> </span>
 				</div>
 				<div>
@@ -19,11 +20,9 @@
 				<div>
 					<input type = "submit" name = "login" value = "Login"/>
 				</div>
-				<div>
-					<a href = "SignUp.php" >Not Registered Yet? Sign Up</a>
-				</div>
+				
 			</form>
 		</div>
-	</body>
-    <?php include 'main_footer.php'; ?>
+	</boady>
+    <?php include 'Footer.php'; ?>
 </html>
