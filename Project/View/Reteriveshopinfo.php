@@ -3,7 +3,7 @@
   include '../Models/DBConfig.php';
     $conn = mysqli_connect($db_server, $db_uname, $db_pass, $db_name);
     if($conn){
-    $query = "SELECT * FROM `products` INNER JOIN shops on shops.Sh_id=products.P_id`";
+    $query = "SELECT * FROM `shops` INNER JOIN products on products.P_id =shops.Sh_id";
     $result = mysqli_query($conn,$query);
    
     echo "<table border='1'>";
@@ -18,7 +18,7 @@
                 echo"<td>".$row["product_quantity"]."</td>";
                 echo"<td>".$row["price"]."</td>";
                  echo"<td>".$row["Sh_id"]."</td>";
-                echo"<td>".$row["Shop_name`"]."</td>";
+                //echo"<td>".$row["Shop_name`"]."</td>";
 
                
             echo"</tr>";

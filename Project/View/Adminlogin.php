@@ -66,6 +66,11 @@
 				<div>
 					<input type = "submit" name = "login" value = "login"/>
 				</div>
+				<div>
+			   <button allign=left ><a target="_blank" href="forget_admin_password.php" >forget password</a></button>
+				
+				
+				</div>
 				
 			</form>
 		</div>

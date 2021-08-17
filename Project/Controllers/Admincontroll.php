@@ -1,8 +1,7 @@
 <?php session_start()?>
 <?php
     include '../Models/DBConfig.php';
-    $name="";
-    $err_name="";
+    
     $uname="";
     $err_uname="";
     $pass="";
