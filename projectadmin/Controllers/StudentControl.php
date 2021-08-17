@@ -60,7 +60,6 @@
 	
 	else if(isset($_POST["updateStudent"])){
 		if(empty($_POST["name"])){
-			
 		    $err_name = "Name Required!";
 			$hasError = true;
 	    }

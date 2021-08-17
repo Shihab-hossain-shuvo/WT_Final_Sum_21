@@ -1,3 +1,4 @@
+<?php session_start()?>
 <?php
     include '../Models/DBConfig.php';
     $name="";
@@ -16,8 +17,10 @@
 		    $err_uname = "Username Required!";
 			$hasError = true;
 	    }
+       
 		else{
 		    $uname = $_POST["uname"];
+			$_SESSION['uname']=$_POST["uname"];
 	    }
 		if(empty($_POST["pass"])){
 		    $err_pass = "Password Required!";
@@ -25,6 +28,7 @@
 	    }
 		else{
 		    $pass = $_POST["pass"];
+			
 	    }
 		if(!$hasError){
 			if(authenticateUser($uname,$pass)){

@@ -1,7 +1,6 @@
 <?php
     include '../Models/DBConfig.php';
-    $name="";
-    $err_name="";
+    
     $uname="";
     $err_uname="";
     $pass="";
@@ -10,15 +9,19 @@
 	$hasError = false;
 
 	
-	if(isset($_POST["login"])){
+	if(isset($_POST["change"])){
 		
 		if(empty($_POST["uname"])){
 		    $err_uname = "Username Required!";
 			$hasError = true;
 	    }
+       
 		else{
 		    $uname = $_POST["uname"];
+			setcookie("name","$uname",time()-60);
 	    }
+		
+		
 		if(empty($_POST["pass"])){
 		    $err_pass = "Password Required!";
 			$hasError = true;
@@ -27,19 +30,17 @@
 		    $pass = $_POST["pass"];
 	    }
 		if(!$hasError){
-			if(authenticateUser($uname,$pass)){
-				header("Location: Dashboard.php");
+			if(updatepassword($uname,$pass)){
+				header("Location: Adminlogin.php");
 			}
 			$err_db = "Invalid User!";
 		}
 	}
-	
-	function authenticateUser($uname,$pass){
-		$query = "select * from adminlogin where username='$uname' and password='$pass'";
-		$rs = get($query);
-		if(count($rs)>0){
-			return true;
-		}
-		return false;
+
+
+	function updatepassword($uname,$pass){
+		$query = "UPDATE `adminlogin` SET `password`='$pass' WHERE `username`='$uname'";
+		return execute($query);
 	}
+   
 ?>

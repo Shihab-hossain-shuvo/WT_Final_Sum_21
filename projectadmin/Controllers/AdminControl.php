@@ -35,7 +35,7 @@
 	}
 	
 	function authenticateUser($uname,$pass){
-		$query = "select * from adminlogin where username='$uname' and password='$pass'";
+		$query = "select * from admin where username='$uname' and password='$pass'";
 		$rs = get($query);
 		if(count($rs)>0){
 			return true;
